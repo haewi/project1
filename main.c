@@ -83,7 +83,7 @@ void createInfo(){
 
 	printf("Enter a new product information\n");
 	printf("Name? ");
-	scanf("%s", name);
+	fgets(name, 20, stdin);
 
 	if(p_search_name(name)!=NULL){
 		printf("Duplicated name!\n");
@@ -103,30 +103,30 @@ void createInfo(){
 }
 
 void readInfo(){
-    char name[20];
-    Product* p;
+	char name[20];
+	Product* p;
 
-    printf("Name? ");
-    scanf("%s", name);
+	printf("Name? ");
+	fgets(name, 20, stdin);
 
-    p = p_search_name(name);
-    if(p==NULL){
-        printf("There is no product!\n");
-        return;
-    }
+	p = p_search_name(name);
+	if(p==NULL){
+		printf("There is no product!\n");
+		return;
+	}
 
-    printf("Name : %s\n", p->name);
-    printf("Price : %d\n", p->price);
-    printf("Number of sales : %d\n", p->saleNum);
-    printf("Sales : %d\n", p->sales);
-    printf("Prime cost : %d\n", p->primeCost);
-    printf("Labor cost : %d\n", p->laborCost);
-    printf("Profit : %d\n", p->profit);
+	printf("Name : %s\n", p->name);
+	printf("Price : %d\n", p->price);
+	printf("Number of sales : %d\n", p->saleNum);
+	printf("Sales : %d\n", p->sales);
+	printf("Prime cost : %d\n", p->primeCost);
+	printf("Labor cost : %d\n", p->laborCost);
+	printf("Profit : %d\n", p->profit);
 }
 
 void listInfo(){
 	printf("All products\n");
-	printf("Name\t\tPrice\t\tSale Number\tSales\t\tPrime Cost\tLabor Cost\tProfit\n");
+	printf("Name\t\t\tPrice\t\tSale Number\tSales\t\t Prime Cost\tLabor Cost\tProfit\n");
 	int size = p_count();
 	Product* a[MAX_PRODUCT];
 
@@ -151,7 +151,7 @@ void makeReport(){
 	fprintf(f, "Number of products : %d\n", size);
 	fprintf(f, "Reporter : %s\n\n", name);
 	fprintf(f, "Contents\n");
-	fprintf(f, "Name\tPrice\t\tSale Number\tSales\t\tPrime Cost\tLabor Cost\tProfit\n");
+	fprintf(f, "Name\t\t\tPrice\t\tSale Number\tSales\t\t Prime Cost\tLabor Cost\tProfit\n");
 	fprintf(f, "-----------------------------------------------------------------------------------------------\n");
 	p_get_all(a);
 
@@ -178,7 +178,7 @@ void updateInfo(){
 	char name[20];
 	int price, saleNum, primeCost, laborCost;
 	printf("Enter a name : ");
-	scanf("%s", name);
+	fgets(name, 20, stdin);
 	Product* p = p_search_name(name);
 	
 	if(p){

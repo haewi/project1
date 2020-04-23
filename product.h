@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_PRODUCT 5		//최대 저장 가능한 제품 정보
+#define MAX_PRODUCT 100		//최대 저장 가능한 제품 정보
 
 // 제품 정보 데이터 타입
 typedef struct{

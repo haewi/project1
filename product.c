@@ -11,7 +11,9 @@ void p_input_filename(char* file){
 	f = fopen(file, "r");
 
 	while(!feof(f)){
-		int result = fscanf(f, "%s %d %d %d %d", n, &pr, &sn, &pc, &lc);
+		int result = fscanf(f, "%d %d %d %d ", &pr, &sn, &pc, &lc);
+		fgets(n, 20, f);
+		n[strlen(n)-1]='\0';
 		if(result<1) break;
 
 	#ifdef DEBUG
@@ -139,7 +141,7 @@ void p_get_all(Product* a[]){
 
 char* p_to_string(Product* a){
 	static char str[200];
-	sprintf(str, "%s\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d", a->name, a->price, a->saleNum, a->sales, a->primeCost, a->laborCost, a->profit);
+	sprintf(str, "%s\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d", a->name, a->price, a->saleNum, a->sales, a->primeCost, a->laborCost, a->profit);
 
 	#ifdef DEBUG
 	printf("[DEBUG 10] (to string) turning %s's info to string finished\n", a->name);
