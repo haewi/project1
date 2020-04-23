@@ -57,10 +57,6 @@ int p_file_count(char* file){
 	return count;
 } // 데이터 파일에 있는 제품 수 리턴
 
-// void p_file_to_record(){
-
-// }
-
 int p_available(int n){
 	if(MAX_PRODUCT-_count >= n){
 	#ifdef DEBUG
@@ -162,10 +158,6 @@ void p_update(Product* p, int price, int saleNum, int prime, int labor){
 	printf("[DEBUG 11] (update) %s's info is updated\n", p->name);
 	#endif
 } // 레코드에 새로운 정보 업데이트
-
-// int p_all_profit(){
-    
-// }
 
 void p_delete(Product* p){
 	int index;
